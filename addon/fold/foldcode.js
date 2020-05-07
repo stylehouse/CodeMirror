@@ -56,6 +56,7 @@
       CodeMirror.signal(cm, "unfold", cm, from, to);
     });
     CodeMirror.signal(cm, "fold", cm, range.from, range.to);
+    return myRange
   }
 
   function makeWidget(cm, options, range) {
@@ -83,7 +84,7 @@
 
   // New-style interface
   CodeMirror.defineExtension("foldCode", function(pos, options, force) {
-    doFold(this, pos, options, force);
+    return doFold(this, pos, options, force);
   });
 
   CodeMirror.defineExtension("isFolded", function(pos) {
